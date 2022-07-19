@@ -2,7 +2,7 @@
 #include <csv.hpp>
 #include <algorithm>
 
-Map::Map(const std::string& raw)
+map::Map::Map(const std::string& raw)
 {
   auto rows = csv::parse(raw);
   headers = rows.get_col_names();

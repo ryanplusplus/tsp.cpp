@@ -1,6 +1,8 @@
 #include "map/Map.hpp"
 #include "CppUTest/TestHarness.h"
 
+using namespace map;
+
 TEST_GROUP(Map){};
 
 TEST(Map, should_parse_raw_data_string)
