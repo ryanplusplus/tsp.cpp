@@ -24,12 +24,12 @@ class Map {
     }
   }
 
-  unsigned distance(unsigned from, unsigned to)
+  unsigned distance(unsigned from, unsigned to) const
   {
     return distances.at(from).at(to);
   }
 
-  std::string city_name(unsigned which)
+  std::string city_name(unsigned which) const
   {
     return headers.at(which + 1);
   }
