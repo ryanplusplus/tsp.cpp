@@ -8,7 +8,7 @@
 
 class Map {
  public:
-  Map(std::string raw)
+  Map(const std::string& raw)
   {
     auto rows = csv::parse(raw);
     headers = rows.get_col_names();
