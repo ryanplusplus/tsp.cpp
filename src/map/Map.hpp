@@ -3,26 +3,10 @@
 
 #include <vector>
 #include <string>
-#include <csv.hpp>
-#include <algorithm>
 
 class Map {
  public:
-  Map(const std::string& raw)
-  {
-    auto rows = csv::parse(raw);
-    headers = rows.get_col_names();
-
-    for(auto& row : rows) {
-      std::vector<unsigned> row_distances;
-
-      std::for_each(++row.begin(), row.end(), [&](auto& field) {
-        row_distances.push_back(std::stoul(field.get()));
-      });
-
-      distances.push_back(row_distances);
-    }
-  }
+  Map(const std::string& raw);
 
   unsigned distance(unsigned from, unsigned to) const
   {
