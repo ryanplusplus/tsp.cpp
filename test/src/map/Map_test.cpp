@@ -22,4 +22,6 @@ TEST(Map, should_parse_raw_data_string)
   CHECK(map.distance(1, 0) == 1194);
   CHECK(map.distance(1, 2) == 457);
   CHECK(map.distance(2, 2) == 0);
+
+  CHECK(map.city_count() == 3);
 }
