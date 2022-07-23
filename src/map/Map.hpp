@@ -25,6 +25,8 @@ namespace map {
       return headers.size() - 1;
     }
 
+    static Map from_file(const std::string& filename);
+
    private:
     std::vector<std::string> headers{};
     std::vector<std::vector<city::City>> distances{};

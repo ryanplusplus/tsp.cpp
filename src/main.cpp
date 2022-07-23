@@ -1,17 +1,23 @@
 #include <iostream>
-#include <fstream>
-#include <sstream>
 #include "map/Map.hpp"
+#include "tour/Builder.hpp"
+#include "tour/LeastCostInserter.hpp"
+#include "util/Randomizer.hpp"
 
 using namespace std;
+using namespace tour;
+using namespace map;
 
 int main()
 {
-  ifstream t("/home/ryan/git/tsp.cpp/data/distances.csv");
-  stringstream buffer;
-  buffer << t.rdbuf();
-  map::Map map{buffer.str()};
+  auto map = Map::from_file("/home/ryan/git/tsp.cpp/data/distances.csv");
 
-  cout << map.distance(3, 4) << endl;
-  cout << map.city_name(0) << endl;
+  auto tour = tour::Builder<tour::LeastCostInserter, util::Randomizer>::build(map);
+
+  for(auto city : tour.cities) {
+    cout << map.city_name(city) << endl;
+  }
+  cout << endl;
+
+  cout << tour.cost(map) << endl;
 }
